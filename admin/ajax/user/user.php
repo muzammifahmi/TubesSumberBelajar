@@ -1,6 +1,6 @@
 <?php 
 session_start();
-require "../../koneksi.php";
+require "../../../koneksi.php";
 if (!isset($_SESSION["login"]) || $_SESSION['user'] != 'admin') {
   header("Location: ".base_url."login.php");
   exit;
@@ -120,7 +120,7 @@ $(document).ready(function() {
 });
 
   function edit_user(id) {
-    $('#isi_edituser').load('ajax/edit_user.php?id='+id);
+    $('#isi_edituser').load('ajax/user/edit_user.php?id='+id);
   }
 
 
@@ -139,7 +139,7 @@ $(document).ready(function() {
     function(isConfirm) {
       if (isConfirm) {
         $.ajax({
-            url : "ajax/hapus_user.php",
+            url : "ajax/user/hapus_user.php",
             type: "POST",
             data: {id:id},
             success: function(data){
@@ -160,7 +160,7 @@ $(document).ready(function() {
 
 
   function saving_tambah_user(){
-  	var url = "ajax/tambah_user.php";
+  	var url = "ajax/user/tambah_user.php";
         var formData = new FormData($('#form_tambah_user')[0]);
         if ($('#username').val()=='' || $('#password').val()=='') {
         	$('#tambah_user').modal('hide');
@@ -200,7 +200,7 @@ $(document).ready(function() {
   }
  
   function saving_user() {
-    var url = "ajax/ubah_user.php";
+    var url = "ajax/user/ubah_user.php";
         var formData = new FormData($('#form_edit_user')[0]);
         $.ajax({
             url : url,

@@ -57,7 +57,9 @@ if (!isset($_SESSION["login"]) || $_SESSION['user'] != 'admin') {
 		  		<td>-</td>
 		  		<td><?=$row2['pilihan_jawab'] ?></td>
 		  		<td>-</td>
-		  		<td><a href="#" onclick="edit_jawaban('<?=$row2['id'] ?>')" data-toggle="modal" data-target="#jawaban_edit" class="btn btn-xs btn-warning">edit</a> | <a onclick="hapus_jawaban('<?=$row2['id'] ?>')" href="#" class="btn btn-xs btn-danger">hapus</a></td>
+		  		<td>
+            <!-- <a href="#" onclick="edit_jawaban('<?=$row2['id'] ?>')" data-toggle="modal" data-target="#jawaban_edit" class="btn btn-xs btn-warning">edit</a> |  -->
+            <a onclick="hapus_jawaban('<?=$row2['id'] ?>')" href="#" class="btn btn-xs btn-danger">hapus</a></td>
 		  	</tr>
 
 
@@ -186,12 +188,12 @@ $(document).ready(function() {
 });
 
   function edit_soal(id) {
-    $('#isi_editsoal').load('ajax/edit_soal.php?id='+id);
+    $('#isi_editsoal').load('ajax/soal/edit_soal.php?id='+id);
   }
 
  function edit_jawaban(id) {
     // alert(id);
-    $('#isi_editjawaban').load('ajax/edit_jawaban.php?id='+id);
+    $('#isi_editjawaban').load('ajax/soal/edit_jawaban.php?id='+id);
   }
 
   function hapus_soal(id) {
@@ -209,7 +211,7 @@ $(document).ready(function() {
     function(isConfirm) {
       if (isConfirm) {
         $.ajax({
-            url : "ajax/hapus_soal.php",
+            url : "ajax/soal/hapus_soal.php",
             type: "POST",
             data: {id:id},
             success: function(data){
@@ -243,7 +245,7 @@ $(document).ready(function() {
     function(isConfirm) {
       if (isConfirm) {
         $.ajax({
-            url : "ajax/hapus_jawaban.php",
+            url : "ajax/jawaban/hapus_jawaban.php",
             type: "POST",
             data: {id:id},
             success: function(data){
@@ -263,7 +265,7 @@ $(document).ready(function() {
 
 
   function saving_tambah_soal(){
-  	var url = "ajax/tambah_soal.php";
+  	var url = "ajax/soal/tambah_soal.php";
         var formData = new FormData($('#form_tambah_soal')[0]);
         if ($('#soal').val()=='' || $('#jawaban').val()=='') {
         	$('#tambah_soal').modal('hide');
@@ -307,7 +309,7 @@ function tambah_jawaban(id){
 	$('#id_soal').val(id);
 }
  function saving_tambah_jawaban(){
-  		var url = "ajax/tambah_jawaban.php";
+  		var url = "ajax/jawaban/tambah_jawaban.php";
         var formData = new FormData($('#form_tambah_jawaban')[0]);
         if ($('#pilihan_jawab').val()=='') {
         	$('#tambah_jawaban').modal('hide');
@@ -347,7 +349,7 @@ function tambah_jawaban(id){
   }
 
   function saving_soal() {
-    var url = "ajax/ubah_soal.php";
+    var url = "ajax/soal/ubah_soal.php";
         var formData = new FormData($('#form_edit_soal')[0]);
         $.ajax({
             url : url,
@@ -382,7 +384,7 @@ function tambah_jawaban(id){
   }
 
   function saving_jawaban() {
-    var url = "ajax/ubah_jawaban.php";
+    var url = "ajax/jawaban/ubah_jawaban.php";
         var formData = new FormData($('#form_edit_jawaban')[0]);
         $.ajax({
             url : url,

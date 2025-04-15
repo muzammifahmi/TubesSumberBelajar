@@ -11,7 +11,7 @@ if (!isset($_SESSION["login"]) || $_SESSION['user'] != 'admin') {
 <br><br>
 <div class="row btntambah">
 	<div class="col-sm-2">
-		<button class="btn btn-primary" data-toggle="modal" data-target="#tambah_user">Tambah user</button>
+		<button class="btn btn-primary" data-toggle="modal" data-target="user/tambah_user">Tambah user</button>
 	</div>
 </div>
 <table class="table table-hover table-bordered" id="dataku">

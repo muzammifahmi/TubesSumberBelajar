@@ -1,6 +1,6 @@
 <?php 
 session_start();
-require "../../koneksi.php";
+require "../../../koneksi.php";
 if (!isset($_SESSION["login"]) || $_SESSION['user'] != 'admin') {
   header("Location: ".base_url."login.php");
   exit;

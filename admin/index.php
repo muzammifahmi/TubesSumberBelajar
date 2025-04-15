@@ -123,7 +123,7 @@ require "../koneksi.php";
     }
 
     function manage_user() {
-      $('#kontenku').load('ajax/user.php');
+      $('#kontenku').load('ajax/user/user.php');
     }
   </script>
   <?php $query = mysqli_query($con, "DELETE FROM tbl_score WHERE id= '" . $_SESSION['id'] . "' "); ?>
