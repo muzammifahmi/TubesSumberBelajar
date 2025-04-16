@@ -42,3 +42,62 @@ th{
 .btntambah{
   margin-bottom: 20px;
 }
+
+/* Footer dengan tema gelap */
+footer.bg-dark {
+  background-color: #343a40; /* Warna latar belakang gelap */
+  color: #ffffff; /* Warna teks putih */
+  padding: 20px 0; /* Padding atas dan bawah */
+}
+
+footer.bg-dark .text-secondary {
+  color: #6c757d; /* Warna teks sekunder */
+}
+
+footer.bg-dark a {
+  color: #ffffff; /* Warna tautan putih */
+  text-decoration: none; /* Hilangkan garis bawah */
+}
+
+footer.bg-dark a:hover {
+  color: #ffc107; /* Warna tautan saat hover */
+  text-decoration: underline; /* Tambahkan garis bawah saat hover */
+}
+
+footer.bg-dark .border-top {
+  border-color: #6c757d; /* Warna garis atas */
+}
+
+footer.bg-dark p {
+  margin: 0; /* Hilangkan margin pada paragraf */
+  font-size: 14px; /* Ukuran font */
+}
+
+/* Navbar customization */
+.navbar .d-flex {
+  justify-content: flex-end; /* Menempatkan menu di sebelah kanan */
+}
+
+.navbar .link-animated {
+  position: relative;
+  transition: color 0.3s ease; /* Animasi perubahan warna */
+}
+
+.navbar .link-animated:hover {
+  color: #007bff; /* Warna saat hover */
+}
+
+.navbar .link-animated::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background: #007bff; /* Warna garis animasi */
+  bottom: -2px;
+  left: 0;
+  transition: width 0.3s ease; /* Animasi garis */
+}
+
+.navbar .link-animated:hover::after {
+  width: 100%; /* Garis muncul penuh saat hover */
+}
